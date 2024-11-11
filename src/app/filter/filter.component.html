@@ -1,0 +1,40 @@
+<!-- Search Bar -->
+<div class="search-cont" >
+    <input class="search-container" type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()" />
+  </div>
+  
+  <!-- Accordion to display the filters -->
+  <cdk-accordion class="example-accordion">
+    <ng-container *ngFor="let filter of dFilter; let index = index">
+      <cdk-accordion-item
+        #accordionItem="cdkAccordionItem"
+        class="example-accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' + index"
+        [attr.aria-expanded]="accordionItem.expanded"
+        [attr.aria-controls]="'accordion-body-' + index">
+        <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+          {{ filter.value }}
+          <span>{{filter.code}}</span>
+         
+        </div>
+        <div
+          class="example-accordion-item-body"
+          role="region"
+          [style.display]="accordionItem.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-' + index"
+          [attr.aria-labelledby]="'accordion-header-' + index">
+          Code: {{ filter.code }}
+        </div>
+      </cdk-accordion-item>
+    </ng-container>
+  </cdk-accordion>
+  
+  <!-- View More / View Less Button -->
+  <div class="view-more-container">
+    <button *ngIf="dFilter.length < filters.length || isExpanded" (click)="toggleViewMore()">
+      {{ isExpanded ? 'View Less' : 'View More' }}
+    </button>
+  </div>
+  

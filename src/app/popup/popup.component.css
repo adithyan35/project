@@ -1,0 +1,56 @@
+.card-container {
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  .product-image-wrapper {
+    width: 210px; /* Slightly larger than the image */
+    height: 210px; /* Slightly larger than the image */
+    border-radius: 50%;
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rounded-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+   background-color: white;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .custom-dialog-container.left {
+    animation: fadeInLeft 0.3s ease-out;
+  }
+  
+  .custom-dialog-container.right {
+    animation: fadeInRight 0.3s ease-out;
+  }
+  

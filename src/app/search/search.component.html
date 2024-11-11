@@ -1,0 +1,24 @@
+<div class="search-container" data-aos="fade-down"
+data-aos-easing="linear"
+data-aos-duration="1500">
+    <!-- Search Bar with Search Icon inside the input -->
+    <div class="search-wrapper">
+      <input
+        type="text"
+        placeholder="Search products..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        class="search-bar"
+      />
+      <mat-icon class="search-icon" style="color: white;">search</mat-icon>
+    </div>
+  
+    <!-- Category Filter Dropdown with Filter Icon -->
+    <div class="filter-wrapper">
+      <mat-icon class="filter-icon" style="color: white;">filter_list</mat-icon>
+      <select [(ngModel)]="selectedCategory" (change)="onSearch()" class="category-filter">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+  </div>
+  

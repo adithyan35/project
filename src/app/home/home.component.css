@@ -1,0 +1,128 @@
+:host{
+    --mdc-filled-button-label-text-color:blue !important;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+  }
+  
+  
+  .product-cards {
+   min-width: 450px;
+   min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .product-cards:hover{
+    box-shadow: 10px 10px 10px rgb(129, 127, 127);
+    transform: translate3d(5px, 5px, 5px);
+}
+
+.product-image-wrapper {
+    width: 210px; /* Slightly larger than the image */
+    height: 210px; /* Slightly larger than the image */
+    border-radius: 50%;
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    background-color: white; /* Background for the image itself */
+    cursor: pointer;
+  }
+  
+
+   .prod{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    max-height: 550px ;
+   }
+
+   .modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   .cont{
+    text-align: center;
+   }
+ 
+   .mat-paginator {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+  }
+  .mat-paginator-container {
+    justify-content: center !important;
+  }
+
+  .no-data {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #f44336;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  .btn:hover{
+    box-shadow: 10px 10px 10px rgb(129, 127, 127);
+    transform: translate3d(5px, 5px, 5px);
+}
+
+  
+
+  button.left-btn {
+    float: left;
+  }
+  
+  button.right-btn {
+    float: right;
+  }
+  
+  /* Animation for the 'No Data Found' message */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .custom-paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .custom-paginator button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #da2323;
+    cursor: pointer;
+  }
+  
+  .custom-paginator .active-page {
+    background-color: #3f51b5;
+    color: rgb(16, 15, 15);
+    font-weight: bold;
+  }
+  
+ 

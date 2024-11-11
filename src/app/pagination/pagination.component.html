@@ -1,0 +1,32 @@
+<!-- <div ARHighlight class="list ">
+    <ul>
+        <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">{{ item }}</li>
+    </ul>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> -->
+
+<!-- <p ARHighlight="yellow" defaultColor="green">hi all welcome</p>
+
+<p ngNonBindable>
+    {{1+1}}
+</p> -->
+
+<div *ARHasHighlight = "'admin'"> hi welcome admin</div>
+
+
+<div *aRListdynamic = "data; let data= $data"> {{data.name}}</div>
+
+
+<div  *ARShowif = "isVisible">this is for showing the content</div>
+<br>
+<br>
+<button (click)="isVisible =!isVisible">toggle</button>
+
+
+<div *ARRepate = "count; let i= index">
+    <p>count : {{  i }}</p>
+</div> 
+    
+
+<input type="number" [(ngModel)]="count"/>

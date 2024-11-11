@@ -1,0 +1,171 @@
+
+
+ 
+ 
+<app-myspinner></app-myspinner>
+@defer (on timer (5000ms)) {
+
+    <AR-search (searchEvent)="filterProducts($event.searchTerm, $event.selectedCategory)"></AR-search>
+
+    <!-- <AR-carousel></AR-carousel> -->
+    
+    
+    
+    
+    <div class="product-container" >
+        @for(product of paginatedProducts; track product){
+            <mat-card  class="product-cards" [@cardAnimation]="'in'" appHighlightCard >
+                <div class="prod" data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500">
+                  <mat-card-header class="cardImage">
+                    <div class="product-image-wrapper">
+                      <img mat-card-image class="product-image" [src]="product.image" alt="{{ product.title }}" (click)="openImage(product.image)">
+                    </div>
+                  </mat-card-header>
+                  <mat-card-title>{{ product.title }}</mat-card-title>
+                  <mat-card-content>
+                    <p>Price: ${{ product.price }}</p>
+                    <p>Rating: {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-flat-button class="btn" color="accent" (click)="openDialog(product.id)">click</button>
+                  </mat-card-actions>
+                </div>
+              </mat-card>
+
+
+           
+        }
+
+          
+    @empty {
+        <div  @fadeInOut class="no-data">
+            No Data Found
+          </div>
+    }
+
+    <div class="mt-5">
+      <input type="checkbox" >
+      <mat-checkbox #checkbox></mat-checkbox>
+<button (click)="changeState(true)">click ME</button>
+</div>
+      
+    </div>
+    <!-- <div class=" row col-12">
+        <div class="col-5 custom-paginator">
+            <button 
+            *ngFor="let page of getPages()" 
+            [ngClass]="{'active-page': page === pageIndex + 1}" 
+            (click)="setPage(page)">
+            {{ page }}
+          </button>
+        </div>
+        <div class="col-6">
+            <mat-paginator class="page" 
+      [length]="filteredProducts.length" 
+      [pageSize]="pageSize" 
+      [pageSizeOptions]="[5, 10, 20]" 
+      (page)="onPageChange($event)">
+    </mat-paginator>
+        </div>
+    </div> -->
+    
+@if(paginatedProducts.length >0){
+    <ngb-pagination 
+    [collectionSize]="filteredProducts.length" 
+    [(page)]="page" 
+    [pageSize]="pageSize" 
+    (pageChange)="onPageChange($event)"
+    class="d-flex justify-content-center"
+  ></ngb-pagination>
+    }
+}
+    
+    
+    @placeholder  {
+      <div class="product-container" data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+        <mat-card *ngFor="let product of paginatedProducts" class="product-cards mb-5" [@cardAnimation]="'in'">
+          <div class="prod">
+            <mat-card-header class="cardImage">
+              <img mat-card-image class="product-image" [src]="" alt="">
+            </mat-card-header>
+            <mat-card-title></mat-card-title>
+            <mat-card-content></mat-card-content>
+            <mat-card-actions></mat-card-actions>
+          </div>
+        </mat-card>
+        
+
+      </div>
+      <ngb-pagination 
+      [collectionSize]="filteredProducts.length" 
+      [(page)]="page" 
+      [pageSize]="pageSize" 
+      
+      class="d-flex justify-content-center"
+    ></ngb-pagination>
+    }
+    @defer(on viewport){
+      @if(getData$|async; as data ){
+        {{data|json}}
+      }
+    }
+    @placeholder {
+      <div>hey Data will lOad</div>
+    }
+
+  <!-- <app-myspinner></app-myspinner>
+<AR-search (searchEvent)="filterProducts($event.searchTerm, $event.selectedCategory)"></AR-search>
+
+<div *ngIf="filteredProducts.length === 0" @fadeInOut class="no-data">
+    No Data Found
+  </div>
+
+<div class="product-container">
+  <mat-card *ngFor="let product of paginatedProducts" class="product-cards" [@cardAnimation]="'in'">
+    <div class="prod">
+      <mat-card-header class="cardImage">
+        <img mat-card-image class="product-image" [src]="product.image" alt="{{ product.title }}">
+      </mat-card-header>
+      <mat-card-title>{{ product.title }}</mat-card-title>
+      <mat-card-content>
+        <p>Price: ${{ product.price }}</p>
+        <p>Rating: {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button  mat-flat-button class="btn" color="accent" (click)="openDialog(product.id)">click</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="filteredProducts.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  (page)="onPageChange($event)">
+</mat-paginator> -->
+
+
+
+<!-- <ng-template 
+
+>
+    @for(product of paginatedProducts; track product){
+    <div class="card-container">
+        <div class="product-image-wrapper">
+        <img mat-card-image class="rounded-image" [src]="product.image" alt="{{ product.title }}" />
+    </div>
+        <div class="modal-body">
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <p>Rating: {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
+
+           <p><button mat-button (click)="closeDialog()">Close</button></p>
+        </div>
+    </div>
+}
+</ng-template> -->

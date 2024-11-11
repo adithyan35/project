@@ -1,0 +1,51 @@
+/* Ensure the carousel occupies a specific width and height */
+.picsum-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Set the height for the carousel container */
+    width: 100%; /* Full width for the container */
+    overflow: hidden; /* Hide overflowing parts of the images */
+    background-color: #000508; /* Light background for contrast */
+  }
+  
+  .picsum-img-wrapper img {
+    max-height: 100%; /* Image height restricted to the container height */
+    max-width: 100%; /* Image width restricted to the container width */
+    object-fit: cover; /* Ensures the image covers the container, cropping if necessary */
+    border-radius: 10px; /* Optional: Adds rounded corners to the images */
+    transition: transform 0.5s ease; /* Smooth zoom effect on hover */
+  }
+  
+  .picsum-img-wrapper img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  /* Adjust the caption position and styling */
+  .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the caption */
+    color: #fff; /* White text for visibility */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+  
+  /* Add space between the checkbox settings */
+  .form-check {
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    /* Ensure the carousel is responsive for mobile devices */
+    .picsum-img-wrapper {
+      height: 300px;
+    }
+  
+    .carousel-caption {
+      font-size: 1rem;
+    }
+}
